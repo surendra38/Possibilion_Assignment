@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <div class="container" *ngIf="showForm; else elseBlock">
+        <div class='form'>
+            <h2 id="heading"><b>Post a job</b></h2>
+            <label for="jtitle" class="label">Job Title :</label>
+            <input type="text" [(ngModel)]="job_title" class="textbox" id="jtitle" placeholder="Xyz..." autocomplete="off"><br>
+            <label for="jsalary" class="label">Job Salary :</label>
+            <input type="text" [(ngModel)]="job_salary" class="textbox" id="jsalary" placeholder="20,000" autocomplete="off"><br>
+            <label for="jdesc" class="label">Job Description :</label>
+            <textarea rows="3" [(ngModel)]="job_desc" cols="40" class="textbox" id="jdesc" placeholder="Xvcnjkijuhnfcsj..........."></textarea><br>
+            <div class="text-center">
+               <input type="submit" (click)="createRecord()" value="Add" [disabled]="!job_title || !job_salary || !job_desc" >
+            </div>
+        </div>
+    </div>
+    <ng-template #elseBlock>
+        <app-list></app-list>
+    </ng-template>
+</body>
+</html>

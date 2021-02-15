@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dataList</title>
+</head>
+<body>
+    <div class="container" *ngIf="showList; else elseBlock">
+        <table class="list" >
+            <button class="btn" (click)="showData()">Add</button>
+            <tr *ngFor="let list of employee ">
+                <td>{{list.title}}</td>
+                <td>{{list.salary}}</td>
+                <td>{{list.desc}}</td>
+            </tr>
+        </table>
+    </div>
+    <ng-template #elseBlock>
+        <app-form></app-form>
+    </ng-template>
+</body>
+</html>
